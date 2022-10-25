@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+
+struct RationalNumber
+{
+	int a, b;/*a (to mean the numerator) and b (to mean the denominator)*/
+	double toDouble(RationalNumber r)
+	{
+		double result = static_cast<double>(a) / b;
+		return result;
+	}
+
+};
+
+void standarize(RationalNumber& r)
+{
+	if (r.a < 0 || r.b < 0)
+	{
+		r.a = r.a * -1;
+		r.b = r.b * -1;
+	}
+	cout << r.a << " " << r.b;
+}
+
+int main()
+{
+	RationalNumber r;
+	r.a = 1;
+	r.b = -2;
+	standarize(r);
+
+	system("pause");
+	return 0;
+}
