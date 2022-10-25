@@ -1,0 +1,46 @@
+#include<iostream>
+using namespace std;
+
+struct RationalNumber
+{
+	int a, b;/*a (to mean the numerator) and b (to mean the denominator)*/
+	double toDouble(RationalNumber r)
+	{
+		double result = static_cast<double>(a) / b;
+		return result;
+	}
+
+};
+
+void standarize(RationalNumber& r)
+{
+	if (r.a < 0 || r.b < 0)
+	{
+		r.a = r.a * -1;
+		r.b = r.b * -1;
+	}
+	cout << r.a << " " << r.b;
+}
+void gcd(RationalNumber& r)
+{
+	int result = min(r.a, r.b); // Find Minimum of a nd b
+	while (result > 0) {
+		if (r.a % result == 0 && r.b % result == 0) {
+			break;
+		}
+		result--;
+	}
+	r.a = r.a / result;
+	r.b = r.b / result;
+	cout << r.a << "/" << r.b;
+}
+int main()
+{
+	RationalNumber r;
+	r.a = 1;
+	r.b = 7;
+	gcd(r);
+
+	system("pause");
+	return 0;
+}
